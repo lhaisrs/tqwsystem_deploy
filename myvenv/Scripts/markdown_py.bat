@@ -1,0 +1,1 @@
+@"c:\users\lhais\teamworkqualityreport\backend\myvenv\scripts\python.exe" "c:\users\lhais\teamworkqualityreport\backend\myvenv\Scripts\markdown_py" %*

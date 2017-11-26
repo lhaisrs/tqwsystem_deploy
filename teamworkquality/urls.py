@@ -14,14 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import include, url
-from django.contrib.auth.models import User
-from rest_framework import routers, serializers, viewsets
+from rest_framework import routers
 from twqsystem import views
 
+router = routers.DefaultRouter()
+router.register(r'relatorios', views.RelatorioViewSet)
+
 urlpatterns = [
-    url(r'formulario', views.get_formulario, name='formulario'),
-    url(r'relatorio', views.get_relatorio, name='relatorio'),
-    url(r'relatorios', views.get_relatorios, name='relatorios'),
+    url(r'^', include(router.urls))
+    # url(r'formulario', views.get_formulario, name='formulario'),
+    # url(r'relatorio', views.get_relatorio, name='relatorio'),
+    # url(r'relatorios', views.get_relatorios, name='relatorios'),
     #url(r'^relatorio/historico', views.get_historic_relatorio, name='historico'),
     #url(r'^relatorio/analise', views.get_analise_relatorio, name='analise'),
     #url(r'^', views.get_home, name='blog'),
